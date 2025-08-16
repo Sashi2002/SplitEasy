@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { SEO, seoConfigs } from "@/components/SEO";
 import { useTrips, Trip, Person } from "@/contexts/TripContext";
 import { Calculator, Plus, Users, ArrowLeft, Trash2, Edit2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -68,7 +69,9 @@ export default function Trips() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO {...seoConfigs.trips} />
+      <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/20 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -247,5 +250,6 @@ export default function Trips() {
         </div>
       </main>
     </div>
+    </>
   );
 }

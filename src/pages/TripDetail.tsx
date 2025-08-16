@@ -8,6 +8,7 @@ import { BalanceDisplay } from "@/components/BalanceDisplay";
 import { ExpenseList } from "@/components/ExpenseList";
 import { ExportSectionWrapper } from "@/components/ExportSectionWrapper";
 import { IndividualContributions } from "@/components/IndividualContributions";
+import { SEO, seoConfigs } from "@/components/SEO";
 import { useTrips } from "@/contexts/TripContext";
 import { Calculator, Plus, ArrowLeft, Users, Receipt, IndianRupee } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -42,7 +43,9 @@ export default function TripDetail() {
   const totalExpenses = currentTrip.expenses.reduce((sum, expense) => sum + expense.amount, 0);
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEO {...seoConfigs.tripDetail(currentTrip.name)} />
+      <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/20 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -140,5 +143,6 @@ export default function TripDetail() {
         </div>
       </main>
     </div>
+    </>
   );
 }

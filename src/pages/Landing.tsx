@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { SEO, seoConfigs } from "@/components/SEO";
 import { Calculator, Users, Receipt, IndianRupee } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +9,9 @@ export default function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-hero-gradient">
+    <>
+      <SEO {...seoConfigs.home} />
+      <div className="min-h-screen bg-hero-gradient">
       {/* Header */}
       <header className="container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="flex items-center space-x-2">
@@ -78,5 +81,6 @@ export default function Landing() {
         </p>
       </footer>
     </div>
+    </>
   );
 }
