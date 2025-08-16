@@ -9,9 +9,9 @@ interface SEOProps {
 }
 
 export function SEO({ 
-  title = 'SplitEasy - Split Expenses with Friends | Free Expense Tracker',
+  title = 'TabSplitr - Split Expenses with Friends | Free Expense Tracker',
   description = 'Split expenses easily with friends on trips, dinners, and group activities. Track who paid what, calculate balances, and settle debts. No accounts required!',
-  image = 'https://split-easy-nine.vercel.app/spliteasy-social.svg',
+  image = 'https://split-easy-nine.vercel.app/tabsplitr-social.svg',
   url = 'https://split-easy-nine.vercel.app/',
   type = 'website'
 }: SEOProps) {
@@ -69,23 +69,23 @@ export function SEO({
 // Predefined SEO configurations for different pages
 export const seoConfigs = {
   home: {
-    title: 'SplitEasy - Split Expenses with Friends | Free Expense Tracker',
+    title: 'TabSplitr - Split Expenses with Friends | Free Expense Tracker',
     description: 'Split expenses easily with friends on trips, dinners, and group activities. Track who paid what, calculate balances, and settle debts. No accounts required!',
     url: 'https://split-easy-nine.vercel.app/'
   },
   trips: {
-    title: 'My Trips - SplitEasy | Manage Your Group Expenses',
+    title: 'My Trips - TabSplitr | Manage Your Group Expenses',
     description: 'View and manage all your trips and group expenses. Track spending, calculate balances, and settle debts with friends easily.',
     url: 'https://split-easy-nine.vercel.app/trips'
   },
   tripDetail: (tripName: string) => ({
-    title: `${tripName} - Trip Details | SplitEasy`,
+    title: `${tripName} - Trip Details | TabSplitr`,
     description: `View expenses, balances, and settlements for ${tripName}. Track who paid what and calculate fair splits for your group.`,
     url: 'https://split-easy-nine.vercel.app/trips/'
   }),
   notFound: {
-    title: 'Page Not Found - SplitEasy',
-    description: 'The page you are looking for does not exist. Return to SplitEasy to continue splitting expenses with friends.',
+    title: 'Page Not Found - TabSplitr',
+    description: 'The page you are looking for does not exist. Return to TabSplitr to continue splitting expenses with friends.',
     url: 'https://split-easy-nine.vercel.app/404'
   }
 };

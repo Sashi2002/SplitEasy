@@ -1,4 +1,4 @@
-# 💰 SplitEasy
+# 💰 TabSplitr
 
 **Split expenses easily with friends** - An expense-splitting app developed using React and TypeScript. 
 
@@ -32,7 +32,7 @@
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd SplitEasy
+cd TabSplitr
 
 # Install dependencies
 npm install
@@ -79,27 +79,6 @@ npm run preview
 - **UI Components**: shadcn/ui component library
 - **Icons**: Lucide React
 
-## 📁 Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-│   ├── ui/             # shadcn/ui components
-│   ├── AddExpenseModal.tsx
-│   ├── BalanceDisplay.tsx
-│   ├── ExpenseList.tsx
-│   └── ThemeProvider.tsx
-├── contexts/           # React Context providers
-│   └── TripContext.tsx
-├── hooks/              # Custom React hooks
-├── pages/              # Main application pages
-│   ├── Landing.tsx
-│   ├── Trips.tsx
-│   ├── TripDetail.tsx
-│   └── NotFound.tsx
-├── lib/                # Utility functions
-└── styles/             # Global styles and themes
-```
 
 ## 🎨 Design Features
 
@@ -111,7 +90,7 @@ src/
 
 ## 🧮 How Split Calculations Work
 
-SplitEasy uses smart algorithms to:
+TabSplitr uses smart algorithms to:
 1. **Calculate individual balances** - Who owes money vs. who should receive money
 2. **Minimize transactions** - Find the optimal number of payments to settle all debts
 3. **Handle custom splits** - Support unequal expense sharing

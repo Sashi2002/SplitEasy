@@ -86,7 +86,7 @@ export default function Trips() {
             </Button>
             <div className="flex items-center space-x-2">
               <Calculator className="h-6 w-6 text-primary" />
-              <h1 className="text-xl font-semibold">SplitEasy</h1>
+              <h1 className="text-xl font-semibold">TabSplitr</h1>
             </div>
           </div>
           <ThemeToggle />
