@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { AddExpenseModal } from "@/components/AddExpenseModal";
 import { BalanceDisplay } from "@/components/BalanceDisplay";
 import { ExpenseList } from "@/components/ExpenseList";
+import { ExportSectionWrapper } from "@/components/ExportSectionWrapper";
 import { useTrips } from "@/contexts/TripContext";
 import { Calculator, Plus, ArrowLeft, Users, Receipt, IndianRupee } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -125,6 +126,7 @@ export default function TripDetail() {
 
             <TabsContent value="balances" className="space-y-4">
               <h2 className="text-2xl font-bold">Who Owes What</h2>
+              <ExportSectionWrapper trip={currentTrip} />
               <BalanceDisplay trip={currentTrip} />
             </TabsContent>
           </Tabs>
