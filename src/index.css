@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core background and text */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    /* Popovers and overlays */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary brand - modern teal/blue gradient base */
+    --primary: 185 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 175 80% 55%;
+
+    /* Secondary - clean neutral */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 215 25% 15%;
+
+    /* Muted elements */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - vibrant highlight */
+    --accent: 175 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Financial colors */
+    --positive: 145 65% 45%;
+    --positive-foreground: 0 0% 100%;
+    --negative: 0 75% 55%;
+    --negative-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 210 20% 88%;
+    --input: 210 20% 92%;
+    --ring: 185 85% 45%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Gradients for modern financial UI */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.05));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-elegant: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 2px 8px -2px hsl(var(--foreground) / 0.1);
+  }
+
+  .dark {
+    /* Dark theme - modern dark surface */
+    --background: 215 30% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 185 85% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-glow: 175 80% 65%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 10% 65%;
+
+    --accent: 175 80% 65%;
+    --accent-foreground: 215 30% 8%;
+
+    --positive: 145 65% 55%;
+    --positive-foreground: 215 30% 8%;
+    --negative: 0 75% 65%;
+    --negative-foreground: 215 30% 8%;
+
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 215 30% 8%;
+
+    --border: 215 20% 25%;
+    --input: 215 20% 18%;
+    --ring: 185 85% 55%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --shadow-elegant: 0 4px 20px -4px hsl(var(--primary) / 0.25);
+    --shadow-card: 0 2px 8px -2px hsl(var(--foreground) / 0.05);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: var(--transition-smooth);
+  }
+}
+
+@layer components {
+  /* Hero button with gradient */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold;
+    @apply hover:shadow-lg hover:scale-105 transition-all duration-300;
+    @apply shadow-elegant;
+  }
+  
+  /* Financial amount display */
+  .amount-positive {
+    @apply text-positive font-semibold;
+  }
+  
+  .amount-negative {
+    @apply text-negative font-semibold;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  /* Gradient background */
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+}
