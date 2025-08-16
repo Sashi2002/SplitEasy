@@ -66,9 +66,10 @@ export default function ExportSection({ trip }: ExportSectionProps) {
       });
     } catch (error) {
       console.error('PDF export error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
       toast({
-        title: "Export failed",
-        description: "There was an error exporting to PDF. Please try again.",
+        title: "PDF Export failed",
+        description: `Error: ${errorMessage}. Please try again.`,
         variant: "destructive",
       });
     } finally {

@@ -1,14 +1,7 @@
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import { Trip, calculateBalances, calculateSettlements } from '@/contexts/TripContext';
-
-// Extend jsPDF type to include autoTable
-declare module 'jspdf' {
-  interface jsPDF {
-    autoTable: (options: any) => jsPDF;
-  }
-}
 
 export function exportToExcel(trip: Trip) {
   const workbook = XLSX.utils.book_new();
@@ -107,9 +100,10 @@ export function exportToExcel(trip: Trip) {
 }
 
 export function exportToPDF(trip: Trip) {
-  const doc = new jsPDF();
-  const balances = calculateBalances(trip);
-  const settlements = calculateSettlements(trip);
+  try {
+    const doc = new jsPDF();
+    const balances = calculateBalances(trip);
+    const settlements = calculateSettlements(trip);
   
   // Header
   doc.setFontSize(20);
@@ -132,7 +126,7 @@ export function exportToPDF(trip: Trip) {
     ['Total Amount', `₹${trip.expenses.reduce((sum, expense) => sum + expense.amount, 0).toFixed(2)}`]
   ];
   
-  doc.autoTable({
+  autoTable(doc, {
     startY: 60,
     head: [['Category', 'Value']],
     body: summaryData,
@@ -142,13 +136,13 @@ export function exportToPDF(trip: Trip) {
   });
   
   // Participants
-  let currentY = (doc as any).lastAutoTable.finalY + 15;
+  let currentY = (doc as any).lastAutoTable?.finalY || 100;
   doc.setFontSize(14);
   doc.text('Participants', 20, currentY);
   
   const participantData = trip.people.map(person => [person.name]);
   
-  doc.autoTable({
+  autoTable(doc, {
     startY: currentY + 5,
     head: [['Name']],
     body: participantData,
@@ -180,7 +174,7 @@ export function exportToPDF(trip: Trip) {
     ];
   });
   
-  doc.autoTable({
+  autoTable(doc, {
     startY: 35,
     head: [['Date', 'Title', 'Amount', 'Paid By', 'Split Among']],
     body: expenseData,
@@ -224,7 +218,7 @@ export function exportToPDF(trip: Trip) {
     ];
   });
   
-  doc.autoTable({
+  autoTable(doc, {
     startY: 35,
     head: [['Person', 'Balance', 'Status']],
     body: balanceData,
@@ -235,7 +229,7 @@ export function exportToPDF(trip: Trip) {
   
   // Settlement Suggestions
   if (settlements.length > 0) {
-    currentY = (doc as any).lastAutoTable.finalY + 15;
+    currentY = (doc as any).lastAutoTable?.finalY + 15 || 200;
     doc.setFontSize(14);
     doc.text('Settlement Suggestions', 20, currentY);
     
@@ -245,7 +239,7 @@ export function exportToPDF(trip: Trip) {
       return [fromName, toName, `₹${settlement.amount.toFixed(2)}`];
     });
     
-    doc.autoTable({
+    autoTable(doc, {
       startY: currentY + 5,
       head: [['From', 'To', 'Amount']],
       body: settlementData,
@@ -267,4 +261,8 @@ export function exportToPDF(trip: Trip) {
   // Save the file
   const fileName = `${trip.name.replace(/[^a-z0-9]/gi, '_')}_expenses.pdf`;
   doc.save(fileName);
+  } catch (error) {
+    console.error('PDF Export Error:', error);
+    throw new Error(`Failed to generate PDF: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
 }

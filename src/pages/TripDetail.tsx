@@ -7,6 +7,7 @@ import { AddExpenseModal } from "@/components/AddExpenseModal";
 import { BalanceDisplay } from "@/components/BalanceDisplay";
 import { ExpenseList } from "@/components/ExpenseList";
 import { ExportSectionWrapper } from "@/components/ExportSectionWrapper";
+import { IndividualContributions } from "@/components/IndividualContributions";
 import { useTrips } from "@/contexts/TripContext";
 import { Calculator, Plus, ArrowLeft, Users, Receipt, IndianRupee } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -104,8 +105,9 @@ export default function TripDetail() {
 
           {/* Main Content */}
           <Tabs defaultValue="expenses" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="expenses">Expenses</TabsTrigger>
+              <TabsTrigger value="contributions">Contributions</TabsTrigger>
               <TabsTrigger value="balances">Balances</TabsTrigger>
             </TabsList>
 
@@ -122,6 +124,11 @@ export default function TripDetail() {
               </div>
               
               <ExpenseList trip={currentTrip} />
+            </TabsContent>
+
+            <TabsContent value="contributions" className="space-y-4">
+              <h2 className="text-2xl font-bold">Individual Contributions</h2>
+              <IndividualContributions trip={currentTrip} />
             </TabsContent>
 
             <TabsContent value="balances" className="space-y-4">
