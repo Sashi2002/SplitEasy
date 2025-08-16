@@ -5,7 +5,7 @@ Disallow: /trips/*
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://split-easy-nine.vercel.app/sitemap.xml
+Sitemap: https://tabsplitr.vercel.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

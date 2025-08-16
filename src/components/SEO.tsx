@@ -11,8 +11,8 @@ interface SEOProps {
 export function SEO({ 
   title = 'TabSplitr - Split Expenses with Friends | Free Expense Tracker',
   description = 'Split expenses easily with friends on trips, dinners, and group activities. Track who paid what, calculate balances, and settle debts. No accounts required!',
-  image = 'https://split-easy-nine.vercel.app/tabsplitr-social.svg',
-  url = 'https://split-easy-nine.vercel.app/',
+  image = 'https://tabsplitr.vercel.app/tabsplitr-social.svg',
+  url = 'https://tabsplitr.vercel.app/',
   type = 'website'
 }: SEOProps) {
   useEffect(() => {
@@ -71,21 +71,21 @@ export const seoConfigs = {
   home: {
     title: 'TabSplitr - Split Expenses with Friends | Free Expense Tracker',
     description: 'Split expenses easily with friends on trips, dinners, and group activities. Track who paid what, calculate balances, and settle debts. No accounts required!',
-    url: 'https://split-easy-nine.vercel.app/'
+    url: 'https://tabsplitr.vercel.app/'
   },
   trips: {
     title: 'My Trips - TabSplitr | Manage Your Group Expenses',
     description: 'View and manage all your trips and group expenses. Track spending, calculate balances, and settle debts with friends easily.',
-    url: 'https://split-easy-nine.vercel.app/trips'
+    url: 'https://tabsplitr.vercel.app/trips'
   },
   tripDetail: (tripName: string) => ({
     title: `${tripName} - Trip Details | TabSplitr`,
     description: `View expenses, balances, and settlements for ${tripName}. Track who paid what and calculate fair splits for your group.`,
-    url: 'https://split-easy-nine.vercel.app/trips/'
+    url: 'https://tabsplitr.vercel.app/trips/'
   }),
   notFound: {
     title: 'Page Not Found - TabSplitr',
     description: 'The page you are looking for does not exist. Return to TabSplitr to continue splitting expenses with friends.',
-    url: 'https://split-easy-nine.vercel.app/404'
+    url: 'https://tabsplitr.vercel.app/404'
   }
 };
